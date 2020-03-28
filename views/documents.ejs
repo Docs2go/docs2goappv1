@@ -1,0 +1,16 @@
+<%- include("partials/header") %>
+
+<h1>This is the documents page</h1>
+
+<p>Welcome to Docs2go</p>
+
+<% documents.forEach((document) => { %>
+
+  <div class="">
+    <h4><%= document.name%></h4>
+    <img src="<%= document.image %>">
+  </div>
+ 
+<% }); %>
+
+<%- include("partials/footer") %>
