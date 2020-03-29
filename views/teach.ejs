@@ -1,0 +1,38 @@
+<%- include("partials/header") %>
+
+
+
+<div class="container">
+  <header class="jumbotron">
+    <div class="container">
+      <h1>Welcome</h1>
+      <p>
+        <a class="btn btn-primary btn-md" href="teach/new">Register now</a>
+      </p>
+    </div>
+    
+    
+  </header>
+    
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>People who have signed up!</h3>
+    </div>
+  </div>
+    
+  <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+    <% teachers.forEach((teacher) => { %>
+      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">
+          <img src="<%= teacher.image %>">
+          <div class="caption">
+            <h4><%= teacher.name%></h4>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+
+</div>
+
+<%- include("partials/footer") %>

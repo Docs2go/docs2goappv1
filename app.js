@@ -4,14 +4,9 @@ const bodyParser = require("body-parser");
 const port = 5400;
 
 
-var documents = [
-    {name: "Police clearance", image: "https://image.freepik.com/free-photo/pile-unfinished-documents-office-desk_42667-858.jpg"},
-    {name: "Police clearance expungement", image: "https://image.freepik.com/free-photo/pile-unfinished-documents-office-desk_42667-858.jpg"},
-    {name: "Abridged Marriage certificate", image: "https://image.freepik.com/free-photo/pile-unfinished-documents-office-desk_42667-858.jpg"},
-    {name: "Unabridged Marriage Certificate", image: "https://image.freepik.com/free-photo/pile-unfinished-documents-office-desk_42667-858.jpg"},
-    {name: "Abridged Birth certificate", image: "https://image.freepik.com/free-photo/pile-unfinished-documents-office-desk_42667-858.jpg"},
-    {name: "Unabridged Birth Certificate", image: "https://image.freepik.com/free-photo/pile-unfinished-documents-office-desk_42667-858.jpg"},
-    {name: "Unabridged Marriage Certificate", image: "https://image.freepik.com/free-photo/pile-unfinished-documents-office-desk_42667-858.jpg"}
+var teachers = [
+    {name: "Terence Molodi", image: "https://image.freepik.com/free-photo/pile-unfinished-documents-office-desk_42667-858.jpg"},
+    {name: "Brigette baxton", image: "https://image.freepik.com/free-photo/pile-unfinished-documents-office-desk_42667-858.jpg"} 
 ];
 
 //to use body parser
@@ -23,25 +18,25 @@ app.get("/", (req, res) => {
     res.render("landing");
 });
 
-app.get("/documents", (req, res)=> {
-    res.render("documents", {documents:documents});
+app.get("/teach", (req, res)=> {
+    res.render("teach", {teachers:teachers});
 });
 
-app.post("/documents", (req, res) => {
+app.post("/teach", (req, res) => {
     //get data from from form and add to documents array
     var name = req.body.name;
     var image = req.body.image;
-    var newDocument = {name: name, image: image}
-    documents.push(newDocument);
-    res.redirect("/documents");
-    //redirect to documents page
+    var newTeacher = {name: name, image: image}
+    teachers.push(newTeacher);
+    res.redirect("/teach");
+    //redirect to teachers page
 });
 
 //shows form which sends data to db
-app.get("/documents/new", (req, res) => {
+app.get("/teach/new", (req, res) => {
         res.render("new.ejs");
 })
 
 app.listen(port, () => {
-    console.log("Docs2go application has started!")
+    console.log("Teach english in china app has started!")
 });
