@@ -38,5 +38,5 @@ app.get("/teach/new", (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log("Teach english in china app has started!")
+    console.log("Docs2go server has started!")
 });
